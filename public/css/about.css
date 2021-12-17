@@ -1,0 +1,29 @@
+.lsjj{
+    width: 70%;
+    margin: 20px auto;
+}
+h2{
+    color: rgb(0, 68, 153);
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 微软雅黑;
+    margin: 10px 0px 20px;
+    padding: 0px 3px 10px;
+    border-bottom: 7px solid rgb(228, 228, 228);
+}
+.lsjj{
+    font-size: 12px;
+    text-indent: 2em;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.foot{
+    border-top: 4px solid #eee;
+    padding-top: 6px;
+    margin-top: 10px;
+}
+.foot p{
+    text-align: center;
+    font-size: 12px;
+    margin-top: 20px;
+}

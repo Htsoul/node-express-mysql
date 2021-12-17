@@ -1,0 +1,85 @@
+.ad{
+    width: 70%;
+    margin: 20px auto;
+}
+h2{
+    color: rgb(0, 68, 153);
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 微软雅黑;
+    margin: 10px 0px 20px;
+    padding: 0px 3px 10px;
+    border-bottom: 7px solid rgb(228, 228, 228);
+}
+.ad{
+    font-size: 12px;
+    text-indent: 2em;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+.pic{
+    height: 60px;
+    border-bottom: 7px solid rgb(228, 228, 228);
+}
+.wx{
+    margin-top: 60px;
+    position: relative;
+}
+.wx img{
+    width: 117px;
+    height: 117px;
+}
+.wx .title{
+    position: absolute;
+    top: 2px;
+    left: 158px;
+    font-family:微软雅黑;
+    font-size: 18px;
+}
+.wx .js{
+    position: absolute;
+    top: 60px;
+    left: 180px;
+    color: #a9a9a9;
+    width: 400px;
+    text-indent: 0;
+}
+.p-o{
+    margin-top: 40px;
+}
+.foot{
+    border-top: 4px solid #eee;
+    padding-top: 6px;
+    margin-top: 10px;
+}
+.foot p{
+    text-align: center;
+    font-size: 12px;
+    margin-top: 20px;
+}
+.he-logo{
+    width: 700px;
+    height: 300px;
+    margin-top: 32px;
+    margin-left: 180px;
+}
+.he-logo ul{
+    list-style: none;
+    border: 0;
+}
+.he-logo ul>li{
+    width: 122px;
+    height: 72px;
+    float: left;
+    margin: 0px 7px;
+    padding: 0px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.he-logo ul>li img{
+    width: 120px;
+    height: 50px;
+    border: 1px solid #ddd;
+    padding: 0px;
+    margin: 0px;
+}

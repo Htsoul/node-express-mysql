@@ -1,0 +1,44 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.contact-header{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    border-bottom: 7px solid rgb(228, 228, 228);
+}
+.nav-center{
+    position: absolute;
+    bottom: 0px;
+    left: 20%;
+    background-color: #4283c4;
+    width: 60%;
+    height: 30px;
+    border-radius: 8px 8px 0 0 ;
+}
+.nav-center ul{
+    list-style: none;
+    padding-left: 130px;
+}
+.nav-center ul>li{
+    display: inline-block;
+    font-size: 14px;
+    color: #fff;
+    width: 112px;
+    height: 25px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.nav-center ul>li a{
+    color: #fff;
+}
+.nav-center ul>li:hover{
+    background-color: chocolate;
+}
+a{
+    text-decoration: none;
+}

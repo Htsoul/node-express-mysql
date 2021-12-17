@@ -1,0 +1,44 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.gg{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+h2 {
+    color: rgb(0, 68, 153);
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px 0px 20px;
+    padding-left: 120px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 7px solid rgb(228, 228, 228);
+}
+.g_cont{
+    width: 800px;
+    height: auto;
+    position: absolute;
+    top: 120px;
+    left: 360px;
+}
+.g_cont ul>li{
+    font-size: 18px;
+    color: rgb(75, 145, 231);
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    cursor: pointer;
+    border-bottom: 1px solid #e6e6e6;
+}
+.g_cont .detail{
+    height: auto;
+    font-size: 14px;
+    text-align: left;
+    text-indent: 2em;
+    padding-top: 12px;
+}

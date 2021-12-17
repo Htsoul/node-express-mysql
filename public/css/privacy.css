@@ -1,0 +1,64 @@
+.cv-contant{
+    width: 70%;
+    margin: 20px auto;
+}
+h2{
+    color: rgb(0, 68, 153);
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 微软雅黑;
+    margin: 10px 0px 20px;
+    padding: 0px 3px 10px;
+    border-bottom: 7px solid rgb(228, 228, 228);
+}
+.notearea {
+    border: 1px solid #ddca8a;
+    background-color: #FFFFCC;
+    padding: 5px 15px;
+    width: 91%;
+    margin: 5px auto;
+    color: #000;
+}
+.notearea strong {
+    color: #FF3300;
+    font-size: 12px;
+}
+.notearea p{
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        padding-left: 24px;
+        padding-top: 12px;
+        padding-bottom: 8px;
+}
+.cv-contant .xxsm{
+    margin-top: 24px;
+    margin-left: 60px;
+    margin-bottom: 30px;
+}
+.cv-contant .xxsm p{
+    font-size: 12px;
+}
+.cv-contant .p-item{
+    margin-left:20px;
+}
+.cv-contant .bqsm{
+    margin-top: 24px;
+    margin-left: 60px;
+    margin-bottom: 30px;
+}
+.cv-contant .bqsm ul>li{
+    list-style: decimal;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 12px;
+}
+.foot{
+    border-top: 4px solid #eee;
+    padding-top: 6px;
+    margin-top: 10px;
+}
+.foot p{
+    text-align: center;
+    font-size: 12px;
+    margin-top: 20px;
+}

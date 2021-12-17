@@ -1,0 +1,119 @@
+.zhuce-header {
+  font-size: 18px;
+  width: 100%;
+  height: 42px;
+  padding-bottom: 18px;
+  border-bottom: 7px solid rgb(182, 182, 182);
+}
+.zhuce-header ul {
+  list-style: none;
+}
+.zhuce-header ul > li {
+  display: inline-block;
+  width: 18%;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+}
+.zhuce-box {
+  width: 100%;
+  height: auto;
+  margin-top: 12px;
+  background-color: #666 !important;
+}
+.zhuce-box {
+  margin-top: 20px;
+  height: auto;
+}
+.zhuce-box ul > li {
+  width: 100%;
+  height: 160px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.zhuce-box h2 {
+  font-size: 18px;
+  line-height: 180%;
+  padding: 0 0 5px 5px;
+  font-weight: 700;
+}
+.zhuce-box h2 a {
+  text-decoration: none;
+  color: #0b4793;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.zhuce-box .list a:hover {
+  text-decoration: none;
+  color: rgb(193, 31, 31);
+}
+
+.zhuce-box li {
+  float: left;
+  margin: 0;
+  padding: 12px 5px;
+  width: 630px;
+  border-bottom: 1px solid #e6e6e6;
+  overflow: hidden;
+  position: relative;
+  list-style: none;
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+.zhuce-box ul > li {
+  text-align: left;
+}
+.zhuce-box .summary {
+  color: #888;
+  font-size: 14px;
+  line-height: 180%;
+  padding: 0 0 5px 5px;
+}
+.zhuce-box .info {
+  margin: 4px 0 0 5px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ccc;
+}
+.zhuce-box .info .author {
+  height: 20px;
+  line-height: 20px;
+  background-size: 12px 12px;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+  display: block;
+}
+.zhuce-box .info .from {
+  height: 20px;
+  line-height: 20px;
+  padding-right: 20px;
+  float: left;
+  display: block;
+}
+.zhuce-box .info .dianzan {
+  height: 20px;
+  line-height: 20px;
+  padding-right: 20px;
+  float: left;
+  display: block;
+}
+.zhuce-box .info .shijian {
+  height: 20px;
+  line-height: 20px;
+  padding-right: 20px;
+  float: right;
+  display: block;
+}
+.summary {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}

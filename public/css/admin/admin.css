@@ -1,0 +1,290 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.box{
+    width: 100%;
+    height: 100%;
+}
+.box .fx a{
+    margin-right: 26px;
+    text-decoration: none;
+    color:#4e73df;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    background-color: #dadada;
+}
+.box thead tr>td{
+    font-size: 14px;
+    color: #a1a1aa;
+    text-align: center;
+    line-height: 60px;
+}
+table{
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+.box tr{
+    border-bottom: 2px solid #e4e4e7;
+}
+.box tbody tr>td{
+    font-size: 12px;
+    color: #52525b;
+    text-align: center;
+    line-height: 60px;
+}
+.box .one{
+    width: 10%;
+    height: 60px;
+}
+.box .two{
+    width: 60%;
+    height: 60px;
+}
+.box .thr{
+    width: 20%;
+    height: 60px;
+}
+.box .fou{
+    width: 10%;
+    height: 60px;
+}
+.box .delete{
+    color: red;
+    text-decoration: none;
+}
+.box .jief{
+    color: green;
+    text-decoration: none;
+}
+.fbgg{
+    width: 800px;
+    height: 500px;
+    margin-left: 200px;
+    border: 2px solid #e4e4e7;
+    border-radius: 25px;
+}
+.fbgg h2{
+    color: rgb(0, 68, 153);
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    font-family: 微软雅黑;
+    margin: 10px 0px 20px;
+    padding: 0px 3px 10px;
+    border-bottom: 7px solid rgb(228, 228, 228);
+}
+.fbgg form{
+    text-align: center;
+}
+.fbgg input{
+    width: 300px;
+    height: 40px;
+    padding-left: 48px;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: bolder;
+    border-radius: 25px;
+    border: 1px solid burlywood;
+}
+.fbgg textarea{
+    width: 300px;
+    height: 200px;
+    font-size: 14px;
+    text-indent: 3em;
+    vertical-align: top;
+    border: 1px solid burlywood;
+    padding-top: 8px;
+}
+.fbgg button{
+    width: 68px;
+    height: 30px;
+}
+.fx a{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    border-radius: 12px;
+}
+.fx a:hover{
+    color: #fff;
+    background-color: chocolate;
+}
+.box .username{
+    width: 30%;
+    height: 60px;
+}
+.box .emad{
+    width: 30%;
+    height: 60px;
+}
+.box .fiv{
+    width: 20%;
+    height: 60px;
+}
+.box .em{
+    width: 40%;
+    height: 60px;
+}
+.box .nickname{
+    width: 15%;
+    height: 60px;
+}
+.box .plate{
+    width: 10%;
+    height: 60px;
+}
+.box .rellyname{
+    width: 15%;
+    height: 60px;
+}
+.box .youx{
+    width: 15%;
+    height: 60px;
+}
+.box .uf_cont{
+    width: 25%;
+    height: 60px;
+}
+.box .zzz{
+    width: 10%;
+    height: 60px;
+}
+.box .uid{
+    width: 15%;
+    height: 60px;
+}
+.box .user{
+    width: 20%;
+    height: 60px;
+} 
+.box .art{
+    width: 30%;
+    height: 60px;
+}
+.box .f_time{
+    width: 20%;
+    height: 60px;
+}
+.box .ca{
+    width: 15%;
+    height: 60px;
+}
+.box .uf_cont a{
+    cursor: pointer;
+    color: #0b4793;
+    text-decoration: none;
+}
+.box .art a{
+    text-decoration: none;
+    color: rgb(53, 171, 159);
+}
+.box .art a:hover{
+    text-decoration: none;
+    color: rgb(206, 45, 85);
+}
+.box .ca a{
+    text-decoration: none;
+    color: green;
+}
+.box .handle{
+    position: absolute;
+    top: 28px;
+    left: 220px;
+    width: 700px;
+    height: 500px;
+    border: 1px solid chocolate;
+    text-align: center;
+    border-radius: 12px;
+}
+.n_left{
+    display: inline-block;
+    width: 120px;
+    height: 48px;
+    margin-top: 8px;
+    margin-left: 12px;
+    text-align: center;
+    line-height: 48px;
+    color: cornflowerblue;
+    border: 1px solid #e4e4e7;
+}
+.n_right{
+    text-align: left;
+    display: inline-block;
+    width: 400px;
+    height: 48px;
+    line-height: 48px;
+    padding-left: 48px;
+    color: darkgray;
+    border: 1px solid #e4e4e7;
+}
+.mss{
+    display: inline-block;
+    width: 400px;
+    height: 100px;
+    text-indent: 2em;
+    padding-top: 4px;
+    border: 1px solid #e4e4e7;
+    text-align: left;
+}
+.handle .btn{
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #e4e4e7;
+    color: green;
+    text-align: center;
+}
+.btn:hover{
+    background-color: #d3d1d1;
+}
+.ffj{
+    color: red;
+}
+.coon{
+    width: 400px;
+    height: 100px;
+    margin: 26px auto;
+    background-color: #0b4793;
+}
+.coon p{
+    width: 400px;
+    height: 100px;
+    margin: 26px auto;
+    text-align: center;
+    background-color: #0b4793;
+    color: #fff;
+    font-size: 28px;
+    letter-spacing: 4px;
+    line-height:100px ;
+}
+.uuss{
+    position: relative;
+    width: 100%px;
+    height: 200px;
+    margin: 20 auto;
+}
+.uuss img{
+    position: absolute;
+    top: 20px;
+    left: 43%;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+}
+.ad{
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #000;
+}

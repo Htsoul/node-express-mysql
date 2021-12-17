@@ -1,0 +1,147 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+}
+.detail{
+    width: 60%;
+    height: auto;
+    margin-top: 140px;
+    margin-left: 400px;
+}
+.detail .title{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bolder;
+}
+.detail .info{
+    margin: 4px 0 0 5px;
+    height: 20px;
+    font-size: 12px;
+    margin-left: 180px;
+    margin-top: 30px;
+    line-height: 20px;
+    color: rgb(171, 166, 166);
+}
+    .detail .info .author{
+    height: 20px;
+    line-height: 20px;
+    background-size: 12px 12px;
+    padding-left: 20px;
+    padding-right: 28px;
+    float: left;
+    display: block;
+}
+    .detail .info .from{
+    height: 20px;
+    line-height: 20px;
+    padding-right: 28px;
+    float: left;
+    display: block;
+}
+    .detail .info .dianzan{
+    height: 20px;
+    line-height: 20px;
+    padding-right: 20px;
+    float: left;
+    display: block;
+}
+.detail .info .shijian{
+    height: 20px;
+    line-height: 20px;
+    padding-right: 20px;
+    float: right;
+    display: block;
+}
+.de-con{
+    height: auto;
+    margin-top: 30px;
+    text-indent: 2em;
+    padding: 16px;
+}
+.action-tyf {
+    text-align: center;
+    font: 14px/22px "Microsoft Yahei";
+    color: #999;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+.action-tyf>div {
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.action-tyf a {
+    color:#999;
+    display: block;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border: #ddd 1px solid;
+    border-radius: 50%;
+}
+.action-tyf p{
+    padding-top: 6px;
+}
+.action-tyf a:hover{
+    
+    border: #999 3px solid;
+}
+.action-tyf a .glyphicon{
+    font-size: 40px;
+    line-height: 60px;
+}
+
+.alzan{
+    color: rgb(255, 178, 107) !important;
+    border: 3px solid rgb(255, 178, 107)  !important;
+    pointer-events: none;
+}
+
+.alshang{
+        color: rgb(255, 178, 107) !important;
+        border: 3px solid rgb(255, 178, 107)  !important;
+        pointer-events: none;
+}
+.comment{
+    margin-top: 38px;
+    width: 100%;
+    height: auto;
+}
+.comm{
+    width: 60%;
+    height: 30px;
+    border: 2px solid #999;
+    border-radius: 12px;
+    padding-left: 10px;
+}
+.commbtn{
+    width: 80px;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #fc5531;
+}
+.comde{
+    width: 100%;
+    height: auto;
+}
+.comde ul{
+    list-style: none;
+}
+.comde ul>li{
+    padding-top: 30px;
+    padding-left: 30px;
+    border-bottom: 3px solid #ddd;
+}
+.comde ul>li p{
+    padding-top: 12px;
+    font-size: 14px;
+    color: #999;
+}
+.glyphicon-user{
+    color: #999;
+}
