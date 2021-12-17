@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <title>修改密码</title>
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+          <h1 style="text-align: left;">修 改 密 码</h1>
+        </div>
+        <form id="login_form">
+            <div class="form-group" style="display: none;">
+                <label for="">用户名</label>
+                <input type="text" class="form-control username" name="username" placeholder="请输入原密码">
+              </div>
+          <div class="form-group">
+            <label for="">原密码</label>
+            <input type="password" class="form-control" name="password" placeholder="请输入原密码">
+          </div>
+          <div class="form-group">
+            <label for="">新密码</label>
+            <input type="password" class="form-control newpwd" name="newpassword" placeholder="请输入新密码">
+          </div>
+          <div class="form-group">
+            <label for="">确认密码</label>
+            <input type="password" class="form-control subpwd" name="subpassword" placeholder="再次输入新密码">
+          </div>
+          <div class="pwd-msg"></div>
+          <button type="submit" class="btn btn-success btn-block pwd-btn">确认修改</button>
+        </form>
+      </div>
+      <script src="js/jquery.min.js"></script>
+      <script>
+          var receiveData = localStorage.getItem('username')
+          console.log(receiveData);
+          $(function(){
+          $('input').bind('input propertychange', function(){
+          $('.pwd-msg').text('')
+              })
+          })
+          $('.btn').click(function(){
+              var newpwd = $('.newpwd').val()
+              var subpwd = $('.subpwd').val()
+              if(newpwd != subpwd){
+                  alert('两次输入的密码不一致！')
+                  return false
+              }else if(newpwd.length<6){
+                  alert('密码至少是6个字符！')
+                  return false
+              }
+              else{
+                  return true
+              }
+          })
+
+     $('#login_form').on('submit', function (e) {
+      e.preventDefault()
+      console.log('fdsf');
+      $('.username').val(receiveData)
+      var formData = $(this).serialize()
+      console.log(formData)
+      $.ajax({
+        url: '/changepwd',
+        type: 'post',
+        data: formData,
+        async: true,
+        dataType: 'json',
+        success: function (results) {
+            var code = results.code
+            var mess = results.mess
+            if(code===2){
+                $('.pwd-msg').text(mess)
+            }
+            else if(code===1){
+                $('.pwd-msg').text(mess)
+            }else{
+                alert('修改成功！')
+                window.location.href='/login'
+            }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.status);
+            console.log(XMLHttpRequest.readyState);
+            console.log(textStatus);
+        }
+      })
+    })
+      
+      
+      </script>
+</body>
+</html>

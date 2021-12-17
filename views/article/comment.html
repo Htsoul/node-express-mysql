@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评论</title>
+</head>
+<style>
+    .comment{
+        width: 100%;
+        height: auto;
+    }
+    .comment ul{
+        list-style: none;
+    }
+    .comment ul>li{
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-bottom: 2px solid #e6e6e6;
+    }
+    .user{
+        width: 100%;
+        height: 40px;
+    }
+    .img{
+        width: 36px;
+        height: 36px;
+    }
+    span{
+        display: inline-block;
+    }
+    .us{
+        width: 120px;
+        padding-left: 12px;
+    }
+    .huifu{
+        width: 123px;
+        color: darkgrey;
+        margin-left: 20px;
+    }
+    .comment .til{
+        width: auto;
+        padding-left: 80px;
+    }
+    .comment .til a{
+        text-decoration: none;
+        color: #349eff;
+    }
+    .com-de{
+        height: auto;
+        color: darkgrey;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+    .option{
+        position: absolute;
+        top: 28px;
+        right: 80px;
+        margin-right: 30px;
+    }
+    .option a{
+        color: red;
+        text-decoration: none;
+    }
+</style>
+<body>
+    <div class="comment">
+        <ul>
+            {{ each comment value index}}
+            <li>
+                <div class="user">
+                    <img src="../{{ value.avatar }}" alt="" class="img">
+                    <span class="us">{{ value.username }}</span>
+                    <span class="huifu">回复了您的帖子</span>
+                    <span class="til"><a href="/article/detail?id={{ value.id }}">{{value.title}}</a></span>
+                </div>
+                <div class="com-de">
+                    “{{ value.comment }} ”
+                </div>
+                <div class="option">
+                    <a href="">删除评论</a>
+                </div>
+            </li>
+            {{ /each }}
+        </ul>
+    </div>
+</body>
+</html>

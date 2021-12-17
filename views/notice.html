@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社区公告</title>
+    <link rel="stylesheet" href="css/notice.css">
+</head>
+<body>
+    <div class="gg">
+        <h2>社区公告</h2>
+        <div class="g_cont">
+            <ul>
+                {{ each gg value index }}
+                <li class="item">{{ value.n_title }}</li>
+                <div class="detail" style="display: none;">
+                    {{ value.n_content }}
+                </div>
+                {{ /each }}
+            </ul>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('.item').click(function(){
+                $(this).next().fadeToggle(1000)
+            })
+        })
+    </script>
+</body>
+</html>

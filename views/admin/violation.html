@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>违规帖子</title>
+    <link rel="stylesheet" href="../css/admin/admin.css">
+</head>
+<body>
+    <div class="box">
+        <div class="fx">
+            <a href="/Aadmin/vio?index=0">正常帖子</a>
+            <a href="/Aadmin/vio?index=1">违规帖子</a>
+        </div>
+        {{ if art }}
+        <table>
+            <thead>
+                <tr>
+                    <td class="uid">UID</td>
+                    <td class="user">用户名</td>
+                    <td class="art">帖子</td>
+                    <td class="f_time">发布时间</td>
+                    <td class="ca">操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{ each art value index }}
+                <tr>
+                    <td style="display: none;" class="jh">{{ value.id }}</td>
+                    <td class="uid">{{ value.user_id }}</td>
+                    <td class="user">{{ value.username }}</td>
+                    <td class="art"><a href="/article/detail?id={{ value.id }}">{{ value.title }}</a></td>
+                    <td class="f_time" style="color: red;">{{ value.time.toLocaleString() }}</td>
+                    <td class="ca"><a href="javascript:void(0);" class="jiech">解除违规</a></td>
+                </tr>
+                {{ /each }}
+            </tbody>
+        </table>
+        {{ else }}
+        <table>
+            <thead>
+                <tr>
+                    <td class="uid">UID</td>
+                    <td class="user">用户名</td>
+                    <td class="art">帖子</td>
+                    <td class="f_time">发布时间</td>
+                    <td class="ca">操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{ each allart value index }}
+                <tr>
+                    <td style="display: none;" class="art_id">{{ value.id}}</td>
+                    <td class="uid">{{ value.user_id }}</td>
+                    <td class="user">{{ value.username }}</td>
+                    <td class="art"><a href="/article/detail?id={{ value.id }}">{{ value.title }}</a></td>
+                    <td class="f_time" style="color: greed;">{{ value.time.toLocaleString() }}</td>
+                    <td class="ca"><a href="javascript:void(0);" class="delete">设置违规</a></td>
+                </tr>
+                {{ /each }}
+            </tbody>
+        </table>
+        {{ /if }}
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+$(function(){
+    $('.delete').click(function(){
+        let art_id = $(this).parent().siblings('.art_id').text()
+        let data = {id : art_id, sss: '正常'}
+        console.log(data);
+        $.ajax({
+        url: '/Aadmin/vio',
+        type: 'post',
+        data: data,
+        async: true,
+        dataType: 'json',
+        success: function (results) {
+          var code = results.code
+          var mess = results.mess
+          if(code===0){
+              alert(mess)
+              window.location.href = '/Aadmin/vio'
+          }else if(code===1){
+              alert(mess)
+          }else{
+              alert('服务器繁忙')
+          }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.status);
+            console.log(XMLHttpRequest.readyState);
+            console.log(textStatus);
+        }
+      })
+    })
+})
+    </script>
+     <script>
+        $(function(){
+            $('.jiech').click(function(){
+                let art_id = $(this).parent().siblings('.jh').text()
+                let data = {id : art_id,sss : '解除违规'}
+                console.log(data);
+                $.ajax({
+                url: '/Aadmin/vio',
+                type: 'post',
+                data: data,
+                async: true,
+                dataType: 'json',
+                success: function (results) {
+                  var code = results.code
+                  var mess = results.mess
+                  if(code===0){
+                      alert(mess)
+                      window.location.href = '/Aadmin/vio'
+                  }else if(code===1){
+                      alert(mess)
+                  }else{
+                      alert('服务器繁忙')
+                  }
+                },
+                error:function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
+                }
+              })
+            })
+        })
+            </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{user.username}}的个人主页</title>
+    <link rel="stylesheet" href="css/article/page.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/article/icons.min.css">
+    <link rel="stylesheet" href="../css/article/article.css">
+</head>
+<style>
+    .LogoName{
+        margin-top: 28px;
+        margin-left: 64px;
+    }
+    .LogoName img{
+        width: 50px;
+        padding-left: 8px;
+        height: 50px;
+    }
+</style>
+<body>
+    <div class="page" id="app">
+        <div class="nav-left" v-show="navLeftFlag" ref="navLeft">
+            <div class="LogoName">
+               <img src="../{{ user.avatar}}" alt=""><br>
+               <p>{{ user.username }}</p>
+            </div>
+           
+        </div>
+        <div class="zhuce">
+            <div class="zhuce-header">
+                <ul>
+                    {{ each userMain value index}}
+                    <li><a href="/uMain?cid={{ value.index }}">{{ value.u_tag }}</a></li>
+                    {{ /each }}
+                </ul>
+            </div>
+            <div class="zhuce-box">
+              {{ each article value index }}
+                <ul>
+                    <li class="list">
+                      <h2 class="">
+                        <a target="_blank" title="{{ value.title }}" href="/article/detail?id={{ value.id }}">{{ value.title }}</a>
+                      </h2>
+                      <div class="summary">
+                        {{ value.content }}
+                      </div>
+                      <div class="info">
+                        <span class="author">
+                            <i class="glyphicon glyphicon-expand" aria-hidden="true"></i>
+                            {{ value.hits }}观看
+                        </span>
+                        <span class="from">&nbsp;&nbsp;
+                            <i class="glyphicon glyphicon-edit" aria-hidden="true"></i>
+                          评论
+                        </span>
+                        <span class="dianzan">&nbsp;&nbsp;
+                            <i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i>
+                            点赞
+                        </span>
+                        <span class="shijian">&nbsp;&nbsp;
+                            时间：&nbsp;{{ value.time.toLocaleString() }}
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+                  {{ /each }}
+               </div>
+        </div>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    
+</body>
+</html>

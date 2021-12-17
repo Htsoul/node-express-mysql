@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户封禁</title>
+    <link rel="stylesheet" href="../css/admin/admin.css">
+</head>
+<body>
+    <div class="box">
+        <div class="fx">
+            <a href="/Aadmin/ban?index=0">未封禁用户</a>
+            <a href="/Aadmin/ban?index=1">已封禁用户</a>
+        </div>
+        {{ if user}}
+        <table>
+            <thead>
+                <tr>
+                    <td class="one">UID</td>
+                    <td class="username">用户名</td>
+                    <td class="emad">邮箱地址</td>
+                    <td class="fou">状态</td>
+                    <td class="fiv">操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{ each user value index }}
+                <tr>
+                    <td class="one">{{ value.id }}</td>
+                    <td class="username">{{ value.username }}</td>
+                    <td class="emad">{{ value.email }}</td>
+                    <td class="fou" style="color: green;">{{ value.statu }}</td>
+                    <td class="fiv"><a href="javascript:void(0);" class="delete">封禁</a></td>
+                </tr>
+                {{ /each }}
+            </tbody>
+        </table>
+        {{ else }}
+        <table>
+            <thead>
+                <tr>
+                    <td class="one">UID</td>
+                    <td class="username">用户名</td>
+                    <td class="em">邮箱地址</td>
+                    <td class="fou">状态</td>
+                    <td class="fiv">操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{ each ban value index }}
+                <tr>
+                    <td class="one">{{ value.id }}</td>
+                    <td class="username">{{ value.username }}</td>
+                    <td class="em">{{ value.email }}</td>
+                    <td class="fou" style="color: red;">{{ value.statu }}</td>
+                    <td class="fiv"><a href="javascript:void(0);" class="jief">解封</a></td>
+                </tr>
+                {{ /each }}
+            </tbody>
+        </table>
+        {{ /if }}
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(function(){
+        $('.delete').click(function(){
+            let username = $(this).parent().siblings('.username').text()
+            let sta = $(this).parent().siblings('.fou').text()
+            let data = {
+                'username':username,
+                'sta':sta
+        }
+        $(this).parents('tr').remove()
+        $.ajax({
+        url: '/Aadmin/ban',
+        type: 'post',
+        data: data,
+        async: true,
+        dataType: 'json',
+        success: function (results) {
+          var code = results.code
+          var mess = results.mess
+          if(code===0){
+              alert(mess)
+          }else if(code===1){
+              alert(mess)
+          }else{
+              alert('服务器繁忙')
+          }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.status);
+            console.log(XMLHttpRequest.readyState);
+            console.log(textStatus);
+        }
+      })
+        })
+    })
+    </script>
+    <script>
+        $(function(){
+        $('.jief').click(function(){
+            let username = $(this).parent().siblings('.username').text()
+            let sta = $(this).parent().siblings('.fou').text()
+            let data = {
+                'username':username,
+                'sta':sta
+        }
+        $(this).parents('tr').remove()
+        $.ajax({
+        url: '/Aadmin/ban',
+        type: 'post',
+        data: data,
+        async: true,
+        dataType: 'json',
+        success: function (results) {
+          var code = results.code
+          var mess = results.mess
+          if(code===0){
+              alert(mess)
+          }else if(code===1){
+              alert(mess)
+          }else{
+              alert('服务器繁忙')
+          }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.status);
+            console.log(XMLHttpRequest.readyState);
+            console.log(textStatus);
+        }
+      })
+        })
+    })
+    </script>
+</body>
+</html>

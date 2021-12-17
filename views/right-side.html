@@ -1,0 +1,104 @@
+<!-- <div class="left-side">
+    <ul>
+      <li><div class="left-nav"><a href="" target="_blank"><p>+</p>了解老森</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>老森网事</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>旅游论坛</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>职业交流</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>大学校园</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>老森问答</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>搞笑故事</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>娱乐八卦</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>情感天地</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>国际新闻</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>百姓声音</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>股市论坛</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>饮食男女</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>时尚资讯</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>生活那点事</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>儿童专区</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>影视评论</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>社区公告</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>用户反馈</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>上诉申诉</a></div></li>
+      <li><div class="left-nav"><a href=""><p>+</p>社区帮助</a></div></li>
+    </ul>
+  </div> -->
+  <div class="right-side">
+    <!-- <div class="item top">
+      <h2>推荐板块</h2>
+      <div class="bk">
+        <ul>
+          <li><a href="" target="_blank">娱乐八卦</a></li>
+          <li><a href="" target="_blank">情感天地</a></li>
+          <li><a href="" target="_blank">国际新闻</a></li>
+          <li><a href="" target="_blank">生活那点事</a></li>
+          <li><a href="" target="_blank">百姓声音</a></li>
+          <li><a href="" target="_blank">大学校园</a></li>
+        </ul>
+      </div>
+    </div> -->
+    <div class="item one">
+      <h2>社区公告</h2>
+      <div class="gg">
+        <ul>
+          {{ each notice value index }}
+          <li><a href="/notice" target="_blank">{{ value.n_title}}</a></li>
+          {{ /each }}
+        </ul>
+      </div>
+        <div class="more">
+          <a href="/notice" target="_blank">更多>></a>
+        </div>
+      
+    </div>
+    <div class="item two">
+      <h2>友情链接</h2>
+      <div class="yq">
+        <ul>
+          <li><a href="https://weibo.com/" target="_blank">新浪微博</a></li>
+          <li><a href="http://www.caijing.com.cn/" target="_blank">财经网</a></li>
+          <li><a href="http://www.chinaweekly.cn/" target="_blank">中国周刊</a></li>
+          <li><a href="http://www.infzm.com/" target="_blank">南方周末</a></li>
+          <li><a href="https://www.toutiao.com/" target="_blank">今日头条</a></li>
+          <li><a href="https://news.qq.com/" target="_blank">腾讯新闻</a></li>
+          <li><a href="https://www.douyu.com/" target="_blank">斗鱼直播</a></li>
+          <li><a href="https://www.bilibili.com/" target="_blank">哔哩哔哩</a></li>
+          <li><a href="https://news.cctv.com/china/" target="_blank">中国新闻(央视网)</a></li>
+          <li><a href="https://www.runoob.com/" target="_blank">菜鸟教程</a></li>
+          <li><a href="http://cw.hubwiz.com/" target="_blank">汇智网</a></li>
+          <li><a href="https://www.w3school.com.cn/" target="_blank">w3c school</a></li>
+          <li><a href="https://bbs.tianya.cn/" target="_blank">天涯论坛</a></li>
+          <li><a href="https://www.csdn.net/" target="_blank">CSDN</a></li>
+          <li><a href="http://www.yzwb.net/" target="_blank">扬子晚报</a></li>
+          <li><a href="http://www.chinareform.org.cn/" target="_blank">中国改革论坛</a></li>
+          <li><a href="http://www.voc.com.cn/" target="_blank">华声在线</a></li>
+          <li><a href="https://www.maserati.com/cn/zh" target="_blank">玛莎拉蒂(中国网)</a></li>
+          <li><a href="http://www.bjnews.com.cn/" target="_blank">新京报</a></li>
+          <li><a href="https://www.chinaz.com/" target="_blank">站长之家</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="item thr">
+      <h2>联系我们</h2>
+      <div class="lx">
+        <ul>
+          <li><a href="/about" target="_blank">关于我们</a></li>
+          <li><a href="/ad" target="_blank">广告服务</a></li>
+          <li><a href="/feedback" target="_blank">用户反馈</a></li>
+          <li><a href="/ft" target="_blank">发帖规范</a></li>
+          <li><a href="/privacy" target="_blank">隐私和版权</a></li>
+        </ul>
+        <div class="ffo">
+          <ul>
+            <li>京ICP备11000xxxx号</li>
+            <li>经营性网站备案信息</li>
+            <li><img src="images/icon-ba.png" alt="">公安备案号110000xxxxx</li>
+            <li>©2021-2022老森社区</li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>老森社区||登录</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+          
+          <h1>用 户 登 录</h1>
+        </div>
+        <form id="login_form">
+          <div class="form-group">
+            <label for="">邮箱</label>
+            <input type="email" class="form-control"  name="email" placeholder="Email" autofocus>
+          </div>
+          <div class="form-group">
+            <label for="">密码</label>
+            <a class="pull-right" href="">忘记密码？</a>
+            <input type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox">记住我
+            </label>
+          </div>
+          <div class="msg">{{ msg }}</div>
+          <button type="submit" class="btn btn-success btn-block">登录</button>
+        </form>
+        <div class="message">
+          <p>没有账号? <a href="/register">点击创建</a>.</p>
+        </div>
+      </div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+      let nm = '正常'
+      console.log(nm.length);
+      $(function(){
+        $('input').bind('input propertychange', function(){
+          $('.msg').text('')
+        })
+      })
+    $('#login_form').on('submit', function (e) {
+      e.preventDefault()
+      var formData = $(this).serialize()
+      console.log(formData)
+      $.ajax({
+        url: '/login',
+        type: 'post',
+        data: formData,
+        async: true,
+        dataType: 'json',
+        success: function (results) {
+          var code = results.code
+          var mess = results.mess
+          console.log(results);
+          var username = results.username
+          if(code===0){
+            alert('登录成功')
+            $(document).ready(function(){
+              window.location.href = '/'
+              $('.navbar-right').hide()
+              $('.user').show()
+              $('.dropdown-toggle').text(username)
+            })
+
+          }else if(code===1){
+            $('.msg').text(mess)
+          }else if(code===2){
+            alert('用户被封禁')
+            $('.msg').text(mess)
+          }
+          else{
+            alert('服务器错误！')
+          }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.status);
+            console.log(XMLHttpRequest.readyState);
+            console.log(textStatus);
+        }
+      })
+    })
+  </script>
+    
+</body>
+</html>

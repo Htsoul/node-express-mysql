@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公告管理</title>
+    <link rel="stylesheet" href="../css/admin/admin.css">
+</head>
+<body>
+    <div class="box">
+        <table>
+            <thead>
+                <tr>
+                    <td class="one">编号</td>
+                    <td class="two">标题</td>
+                    <td class="thr">时间</td>
+                    <td class="fou">操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{ each notice value index }}
+                <tr>
+                    <td class="one nid">{{ value.id }}</td>
+                    <td class="two">{{ value.n_title }}</td>
+                    <td class="thr">{{ value.n_time.toLocaleString() }}</td>
+                    <td class="fou"><a href="javascript:void(0);" class="delete">删除</a></td>
+                </tr>
+                {{ /each }}
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('.delete').click(function(){
+            let id = $(this).parent().siblings('.one').text()
+            $(this).parents('tr').remove()
+            let nid = {'nid':id}
+            $.ajax({
+        url: '/Aadmin/Anotice',
+        type: 'post',
+        data: nid,
+        async: true,
+        dataType: 'json',
+        success: function (results) {
+          var code = results.code
+          var mess = results.mess
+          if(code===0){
+              alert('删除成功！')
+          }else if(code===1){
+            $('.msg').text(mess)
+          }else{
+            alert('服务器错误！')
+          }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.status);
+            console.log(XMLHttpRequest.readyState);
+            console.log(textStatus);
+        }
+      })
+        })
+    })
+</script>
+</html>

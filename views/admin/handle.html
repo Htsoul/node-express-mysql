@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>反馈详情页</title>
+    <link rel="stylesheet" href="../css/admin/admin.css">
+</head>
+<body>
+    <div class="box">
+        <div class="handle">
+            <div class="ufi" style="display: none;">{{ handle.uf_id }}</div>
+            <div class="option" style="display: none;">{{ handle.option }}</div>
+                <div class="n_left">账号昵称：</div>
+                <div class="n_right">{{ handle.nickname }}</div><br>
+                <div class="n_left">板块：</div>
+                <div class="n_right">{{ handle.plate }}</div><br>
+                <div class="n_left">问题描述：</div>
+                <div class="mss">{{ handle.uf_cont }}</div><br>
+                <div class="n_left">联系人：</div>
+                <div class="n_right">{{ handle.rellyname }}</div><br>
+                <div class="n_left">联系人邮箱：</div>
+                <div class="n_right">{{ handle.uf_email }}</div><br><br><br>
+                <button class="btn">已处理</button>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('.btn').click(function(){
+                let uf_id = $('.ufi').text()
+                let data = {'uf_id':uf_id}
+                $.ajax({
+                    url:'/Aadmin/handle',
+                    type:'post',
+                    data:data,
+                    dataType:'json',
+                    success:function(results){
+                        let code = results.code
+                        let mess = results.mess
+                        if(code===0){
+                            alert(mess)
+                            window.location.href = '/Aadmin/feedback'
+                        }else if(code===1){
+                            alert(mess)
+                        }else{
+                            alert('服务器繁忙')
+                        }
+                    },
+                    error:function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
+        }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

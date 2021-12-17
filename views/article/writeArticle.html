@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发帖</title>
+    <link rel="stylesheet" href="css/article/fatie.css">
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <div class="fatie">
+        <div class="lt">发帖</div>
+        <div class="ft-box">
+            <form id="fatie">
+                <input type="hidden" name="time" class="time" >
+                <input type="hidden" name="cid" class="cid" >
+                <input type="text" class="title" name="title" placeholder="请输入标题">
+                <textarea name="content" id="" cols="30" rows="10" class="content" placeholder="请输入内容"></textarea>
+                <div class="tag">
+                    <ul>
+                        <li>#娱乐</li>
+                        <li>#杂谈</li>
+                        <li>#经济</li>
+                        <li>#情感</li>
+                        <li>#旅游</li>
+                        <li>#文学</li>
+                        <li>#问答</li>
+                    </ul>
+                </div>
+                <button type="submit" class="btn">发布</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function time(){
+        var time = new Date()
+        var year = time.getFullYear()
+        var month = time.getMonth()+1
+        var day = time.getDate()
+        var hours = time.getHours()
+        var minutes = time.getMinutes()
+        var second = time.getSeconds()
+        return year + '-' + month + '-' + day + '\t' + hours + ':' + minutes + ':' + second
+    }
+    $(function(){
+        $('.btn').click(function(){
+           document.querySelector('.time').value = time()
+            console.log($('.time').val());
+             
+        })
+
+        $('.tag li').click(function(){
+            $(this).addClass('xuanz').siblings().removeClass('xuanz')
+            var index = $(this).index()
+            document.querySelector('.cid').value = parseInt(index) + 1
+            console.log($('.cid').val());
+        })
+    })
+
+     $('#fatie').on('submit', function (e) {
+      e.preventDefault()
+      var formData = $(this).serialize()
+      console.log(formData)
+      $.ajax({
+        url: '/writeArticle',
+        type: 'post',
+        data: formData,
+        async: false,
+        dataType: 'json',
+        success: function (results) {
+            var code = results.code
+            var mess = results.mess
+            if(code === 1){
+                alert(mess)
+            }else{
+                alert(mess)
+                window.location.href = '/'
+            }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.status);
+            console.log(XMLHttpRequest.readyState);
+            console.log(textStatus);
+        }
+      })
+    })  
+</script>
+</html>

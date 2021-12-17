@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ detail.title }}</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/detail.css">
+</head>
+<body>
+    <div class="detail">
+        <div class="title">{{ detail.title }}</div>
+        <div class="info">
+            <a href="/main/users?id={{ user_id }}">
+                <span class="author">
+                    <img src="/{{users.avatar}}" alt="" width="24px" height="24px">
+                    楼主：{{ users.username }}
+                </span>
+            </a>
+                <span class="from">&nbsp;&nbsp;
+                    <i class="glyphicon glyphicon-edit" aria-hidden="true"></i>
+                  点击：{{ detail.hits }}
+                </span>
+                <span class="dianzan">&nbsp;&nbsp;
+                    <i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i>
+                    点赞：{{ detail.thub }}
+                </span>
+                <span class="shijian">
+                    时间：{{ detail.time.toLocaleString() }}&nbsp;
+                </span>
+        </div>
+        <div class="art_id" style="display: none;">{{ detail.id }}</div>
+        <div class="de-con">
+            {{ detail.content }}
+        </div>
+        <div class="action-tyf">
+            <div class="action-tyf-shang">
+                <a href="javascript:void(0)" class="shang" title="收藏"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+                <p><em class="s_2"></em>收藏</p>
+            </div>
+            <div class="action-tyf-zan">
+                <a href="javascript:void(0)" class="zan" title="点赞"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></a>
+                <p><em class="z_22" style="display: inline;"></em> 点赞</p>
+            </div>
+            <div class="zanvalue" style="display: none;">{{ zan }}</div>
+            <div class="coll" style="display: none;">{{ collect }}</div>
+        </div>
+        <div class="comment">
+            <form id="comment">
+            <input type="text" class="comm">
+            <button class="commbtn">发表评论</button>
+            <div class="comde">
+                <ul>
+                    {{ each comment value index }}
+                    <li>
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        <span>用户：{{value.username}}</span>
+                        <p>
+                            {{ value.comment }}
+                        </p>
+                    </li>
+                    {{ /each }}
+                </ul>
+            </div>
+        </form>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        var receiveData = localStorage.getItem('username')
+        $(function(){
+            var dz = $('.zanvalue').text()
+            console.log(dz.length);
+            if(dz.length>3){
+                $('.zan').addClass('alzan')
+            }
+           $('.zan').click(function(){
+            if(receiveData.length===0){
+                alert('请登陆后再点赞！')
+            }else{
+                let id = $('.art_id').text()
+                let art_id = {'art_id': id,'username':receiveData}
+            $.ajax({
+                url: '/article/detail',
+                type: 'post',
+                data: art_id,
+                async: true,
+                dataType: 'json',
+                success: function (results) {
+                    var code = results.code
+                    var mess = results.mess
+                    if(code===0){
+                        $('.zan').addClass('alzan')
+                        let dzz = parseInt($('.dianzan').text().split('：')[1])
+                        console.log(dzz);
+                        $('.dianzan').text('点赞：'+ (dzz + 1))
+                    }
+                },
+                error:function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
+                }
+            })
+            }
+            
+           })
+        })
+    </script>
+    <script>
+        $(function(){
+            var coll = $('.coll').text()
+            console.log(coll.length);
+            if(coll.length>3){
+                $('.shang').addClass('alshang')
+            }
+           $('.shang').click(function(){
+            if(receiveData.length===0){
+                alert('请登陆后再收藏！')
+            }else{
+                let id = $('.art_id').text()
+                let art_id = {'art_id': id,'username':receiveData}
+            $.ajax({
+                url: '/article/detail',
+                type: 'post',
+                data: art_id,
+                async: true,
+                dataType: 'json',
+                success: function (results) {
+                    var code = results.code
+                    var mess = results.mess
+                    if(code===0){
+                        $('.shang').addClass('alshang')
+                    }
+                },
+                error:function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
+                }
+            })
+            }
+            
+           })
+        })
+    </script>
+    <script>
+        $('.commbtn').click((e)=>{
+            e.preventDefault()
+            var comment = $('.comm').val()
+            if(receiveData.length===0){
+                alert('请登陆后再发表评论！')
+            }
+            else if(comment.length===0){
+                alert('内容不能为空！')
+            }
+            else{
+            console.log(comment);
+            let id = $('.art_id').text()
+            let formData = {'art_id': id,'username':receiveData,'comment':comment}
+            $.ajax({
+                url: '/article/detail',
+                type: 'post',
+                data: formData,
+                async: true,
+                dataType: 'json',
+                success: function (results) {
+                    var code = results.code
+                    var mess = results.mess
+                    if(code === 0){
+                        $('.comm').val('')
+                        $('.comde>ul').prepend(
+                        `<li>
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        <span>${receiveData}</span>
+                        <p>
+                            ${comment} 
+                        </p>
+                    </li>`
+                        )
+                    }
+            },
+                error:function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log(XMLHttpRequest.status);
+                console.log(XMLHttpRequest.readyState);
+                console.log(textStatus);
+            }
+        })
+    }
+    })
+    </script>
+</body>
+</html>

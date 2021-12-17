@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户反馈</title>
+    <style type="text/css">
+        .Content-Main{
+            max-width: 700px;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px 30px 20px 30px;
+            font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-shadow: 1px 1px 1px #FFF;
+            border: 1px solid #DDD;
+            border-radius: 5px;
+            color: #888;
+            background: #FFF;
+        }
+        .Content-Main h1{
+            display: block;
+            padding: 0px 0px 10px 40px;
+            margin: -10px -30px 30px -30px;
+            font: 25px "Helvetica Neue", Helvetica, Arial, sans-serif;
+            border-bottom: 1px solid #DADADA;
+            color: #3855d5;
+        }
+        .Content-Main h1>span{
+            display: block;
+            font-size: 11px;
+        }
+        .Content-Main label{
+            display: block;
+            margin: 0px 0px 5px;
+        }
+        .Content-Main label>span{
+            float: left;
+            width: 20%;
+            padding-right: 20px;
+            margin-top: 10px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-weight: bold;
+            text-align: right;
+            color: #333;
+        }
+        .Content-Main input[type="text"],.Content-Main input[type="number"],.Content-Main input[type="email"],.Content-Main textarea{
+            width: 70%;
+            height: 20px;
+            padding: 5px 0px 5px 5px;
+            margin-bottom: 16px;
+            margin-right: 6px;
+            margin-top: 2px;
+            line-height: 15px;
+            border-radius: 4px;
+            border: 1px solid #CCC;
+            color: #888;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+        .select1{
+            width: 71%;
+            height: 35px;
+            margin-bottom: 16px;
+            margin-right: 6px;
+            margin-top: 2px;
+            line-height: 15px;
+            padding: 5px 0px 5px 5px;
+            border-radius: 4px;
+            border: 1px solid #CCC;
+            color: #888;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+        .select2{
+            width: 20%;
+            border-radius: 4px;
+            border: 1px solid #CCC;
+            color: #888;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        }
+        .Content-Main textarea{
+            width: 70%;
+            height: 100px;
+            padding: 5px 0px 0px 5px;
+        }
+        button{
+            padding: 10px 25px 10px 25px;
+            margin-left: 261px;
+            border-radius: 4px;
+            border:1px solid #CCC;
+            background: #FFF;
+            color: #333;
+        }
+        button:hover{
+            color: #333;
+            background-color: #d3d1d1;
+            border-color: #ADADAD;
+        }
+        .foot{
+            border-top: 4px solid #eee;
+            padding-top: 6px;
+            margin-top: 60px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .MMMM{
+            margin-top: 120px;
+            color: red;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    {{ if user }}
+<div class="Content-Main">
+    <div class="Content-Main1">
+        <h1>用户反馈</h1>
+    </div>
+    <form id="feedback_form">
+        <label>
+            <span>反馈类型</span>
+            <select name="plate" class="select2">
+                <option value="用户举报">用户举报</option>
+                <option value="功能反馈">功能反馈</option>
+                <option value="提出意见">提出意见</option>
+            </select>
+            
+        </label>
+        <label style="margin-top: 10px;">
+            <span>账号名称</span>
+            <input type="text" name="username" class="username" value="{{ user.username }}" style="border: none;" disabled="disabled">
+        </label>
+        <label>
+            <span>问题描述</span>
+            <textarea id="mesaage" name="message" class="message" placeholder="请填写问题描述"></textarea>
+        </label>
+        <label>
+            <span>联系人</span>
+            <input type="text" name="rellyName" class="rellyName" placeholder="请填写真实的联系人">
+        </label>
+        <label>
+            <span>联系邮箱</span>
+            <input type="email" name="email" class="email" placeholder="请填写真实的邮箱地址">
+        </label>
+        <label>
+            <button type="submit" class="btn sign btn-success btn-block">提交</button>
+        </label>
+    </form>
+</div>
+<div class="foot">
+    <p>©2021-2022老森社区</p>
+</div>
+{{ else }}
+<div class="MMMM">
+    请登录之后再进行反馈！<br><br><br>
+    <img src="images/sorr.gif" alt="" width="80px" height="80px">
+</div>
+{{ /if }}
+<script src="js/jquery.min.js"></script>
+<script>
+    $(function(){
+        $('.btn').click(function(){
+            let message = $('.message').val()
+            let rellyName = $('.rellyName').val()
+            let email = $('.email').val()
+            reg = /^([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\-|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/gi
+            if(message.length===0){
+                alert('描述内容不能为空')
+                return false
+            }
+            else if(rellyName.length===0){
+                alert('联系人不能为空')
+                return false
+            }
+            else if(email.length===0){
+                alert('邮箱不能为空')
+                return false
+            }
+            else if (!reg.test(email)) {
+               alert("邮件格式不正确，请重新输入!");
+               return false;
+           }
+           else{
+               return true
+           }
+        })
+
+    $('#feedback_form').on('submit', function (e) {
+      e.preventDefault()
+      $('.username').removeAttr('disabled')
+      let formData = $(this).serialize()
+      console.log(formData)
+      $.ajax({
+        url: '/feedback',
+        type: 'post',
+        data: formData,
+        async: true,
+        dataType: 'json',
+        success: function (results) {
+          var code = results.code
+          var mess = results.mess
+          if(code===0){
+              alert(mess)
+              window.location.href = '/feedback'
+          }else if(code===1){
+              alert(mess)
+          }else{
+              alert('服务器繁忙')
+          }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.status);
+            console.log(XMLHttpRequest.readyState);
+            console.log(textStatus);
+        }
+      })
+    })
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户反馈</title>
+    <link rel="stylesheet" href="../css/admin/admin.css">
+</head>
+<body>
+    <div class="box">
+        <div class="fx">
+            <a href="/Aadmin/feedback?index=0">未处理</a>
+            <a href="/Aadmin/feedback?index=1">已处理</a>
+        </div>
+        {{ if Nfeedback}}
+        <table>
+            <thead>
+                <tr>
+                    <td class="one">FEED_ID</td>
+                    <td class="nickname">账号昵称</td>
+                    <td class="plate">板块</td>
+                    <td class="uf_cont">问题描述</td>
+                    <td class="rellyname">问联系人姓名</td>
+                    <td class="youx">邮箱地址</td>
+                    <td class="zzz">状态</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{ each Nfeedback value index }}
+                <tr>
+                    <td class="one">{{ value.uf_id }}</td>
+                    <td class="nickname">{{ value.nickname }}</td>
+                    <td class="plate">{{ value.plate }}</td>
+                    <td class="uf_cont"><a href="/Aadmin/handle?handleId={{ value.uf_id }}">{{ value.uf_cont.substr(0,18)+'...' }}</a></td>
+                    <td class="rellyname">{{ value.rellyname }}</td>
+                    <td class="youx">{{ value.uf_email }}</td>
+                    <td class="zzz" style="color: red;">{{ value.option }}</td>
+                </tr>
+                {{ /each }}
+            </tbody>
+        </table>
+        {{ else }}
+        <table>
+            <thead>
+                <tr>
+                    <td class="one">FEED_ID</td>
+                    <td class="nickname">账号昵称</td>
+                    <td class="plate">板块</td>
+                    <td class="uf_cont">问题描述</td>
+                    <td class="rellyname">问联系人姓名</td>
+                    <td class="youx">邮箱地址</td>
+                    <td class="zzz">状态</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{ each Ofeedback value index }}
+                <tr>
+                    <td class="one">{{ value.uf_id }}</td>
+                    <td class="nickname">{{ value.nickname }}</td>
+                    <td class="plate">{{ value.plate }}</td>
+                    <td class="uf_cont"><a href="/Aadmin/handle?handleId={{ value.uf_id }}">{{ value.uf_cont.substr(0,18)+'...' }}</a></td>
+                    <td class="rellyname">{{ value.rellyname }}</td>
+                    <td class="youx">{{ value.uf_email }}</td>
+                    <td class="zzz" style="color: green;">{{ value.option }}</td>
+                </tr>
+                {{ /each }}
+            </tbody>
+        </table>
+        {{ /if }}
+    </div>
+    <script src="../js/jquery.min.js"></script>
+</body>
+</html>

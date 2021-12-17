@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发布公告</title>
+    <link rel="stylesheet" href="../css/admin/admin.css">
+</head>
+<body>
+    <div class="box">
+        <div class="fbgg">
+            <h2>发布公告</h2>
+            <form action="" id="fbgg">
+                <input type="hidden" name="n_time" class="n_time" >
+                请输入公告标题：<input type="text" name="n_title" placeholder="请输入公告标题"><br><br><br>
+                请输入公告内容：<textarea name="n_content" placeholder="请输入公告具体内容"></textarea><br><br><br>
+                <button class="btn">提交</button>
+            </form>
+        </div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        function time(){
+        var time = new Date()
+        var year = time.getFullYear()
+        var month = time.getMonth()+1
+        var day = time.getDate()
+        var hours = time.getHours()
+        var minutes = time.getMinutes()
+        var second = time.getSeconds()
+        return year + '-' + month + '-' + day + '\t' + hours + ':' + minutes + ':' + second
+    }
+    console.log(time());
+        $(function(){
+            $('.btn').click(function(){
+            document.querySelector('.n_time').value = time()
+            console.log($('.n_time').val());  
+        })
+        $('#fbgg').on('submit', function (e) {
+            e.preventDefault()
+            var formData = $(this).serialize()
+            console.log(formData)
+            $.ajax({
+              url: '/Aadmin/notice',
+              type: 'post',
+              data: formData,
+              async: false,
+              dataType: 'json',
+              success: function (results) {
+                  var code = results.code
+                  var mess = results.mess
+                  if(code===0){
+                      alert('发布成功')
+                      window.location.href = '/Aadmin/notice'
+                  }else if(code===1){
+                      alert('发布失败')
+                  }else{
+                      alert('服务器繁忙')
+                  }
+              },
+              error:function(XMLHttpRequest, textStatus, errorThrown) {
+                  console.log(XMLHttpRequest.status);
+                  console.log(XMLHttpRequest.readyState);
+                  console.log(textStatus);
+              }
+      })
+    })  
+
+
+})
+    </script>
+</body>
+</html>

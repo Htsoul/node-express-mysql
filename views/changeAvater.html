@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>上传头像</title>
+</head>
+<style>
+    form{
+        width: 300px;
+        height: 400px;
+        position: absolute;
+        top: 160px;
+        left: 700px;
+    }
+    h1{
+        margin-top: 40px;
+        font-size: 26px;
+        padding-bottom: 30px;
+        font-family: inherit;
+        font-weight: 500;
+        line-height: 1.1;
+        color: inherit;
+        padding-left: 200px;
+        border-bottom: 4px solid #73ab73;
+        
+    }
+    .avater{
+        margin-top: 20px;
+    }
+    input[type="file" i] {
+    appearance: none;
+    background-color: #c0c25e;
+    cursor: default;
+    align-items: baseline;
+    color: inherit;
+    text-overflow: ellipsis;
+    white-space: pre;
+    text-align: start !important;
+    padding: initial;
+    border: initial;
+    overflow: hidden !important;
+}
+
+    .btn{
+        margin-top: 18px;
+        margin-left: 60px;
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+        margin-bottom: 0;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+</style>
+<body>
+    <h1>上 传 头 像</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <p>
+            <img width="180px" src="/images/uploadImg.png" alt="">
+            <input type="file" name="photo" class="avater">
+        </p>
+        <p>
+            <input type="text" style="display: none;" name="desc" placeholder="请输描述信息">	
+        </p>
+        <div class="form-group" style="display: none;">
+            <label for="">用户名</label>
+            <input type="password" class="form-control username" name="username" placeholder="请输入原密码">
+          </div>
+        <button type="submit" class="btn">提交</button>
+    </form>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        let $img=document.getElementsByTagName("img")[0];
+        let $input=document.getElementsByName("photo")[0];
+        $input.addEventListener("change",changeHandler);
+        function changeHandler(){
+            //显示选中的图片
+            let f=$input.files[0];
+            let src=window.URL.createObjectURL(f);
+            $img.src=src;
+        }
+    </script>
+    <script>
+        var receiveData = localStorage.getItem('username')
+        $(function(){
+            
+            $('.btn').click(function(){
+                $('.username').val(receiveData)
+            })
+        })
+    </script>
+</body>
+</html>

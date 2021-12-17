@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/article/page.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/article/icons.min.css">
+    <link rel="stylesheet" href="../css/article/article.css">
+</head>
+<body>
+    <div class="zhuce-box">
+        {{ each article value index }}
+          <ul>
+              <li class="list">
+                <h2 class="">
+                  <a target="_blank" title="{{ value.title }}" href="/article/detail?id={{ value.id }}">{{ value.title }}</a>
+                </h2>
+                <div class="summary">
+                  {{ value.content }}
+                </div>
+                <div class="info">
+                  <span class="author">
+                      <i class="glyphicon glyphicon-expand" aria-hidden="true"></i>
+                      {{ value.hits }}观看
+                  </span>
+                  <span class="from">&nbsp;&nbsp;
+                      <i class="glyphicon glyphicon-edit" aria-hidden="true"></i>
+                    评论
+                  </span>
+                  <span class="dianzan">&nbsp;&nbsp;
+                      <i class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></i>
+                      点赞
+                  </span>
+                  <span class="shijian">&nbsp;&nbsp;
+                      时间：&nbsp;{{ value.time.toLocaleString() }}
+                  </span>
+                </div>
+              </li>
+            </ul>
+            {{ /each }}
+         </div>
+  </div>
+</body>
+</html>
